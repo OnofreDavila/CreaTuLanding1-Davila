@@ -16,13 +16,10 @@ export const NavBar = () => {
                 Home
               </Nav.Link>
               <Nav.Link href="#" className="text-white">
-                Poleras
+                Poleras Adultos
               </Nav.Link>
               <Nav.Link href="#" className="text-white">
-                Poleron
-              </Nav.Link>
-              <Nav.Link href="#" className="text-white">
-                Niños
+                Poleras Niños
               </Nav.Link>
             </Nav>
           </div>
