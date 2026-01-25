@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<ItemListContainer mensaje={mensaje} />} />
         <Route
           path="/category/:type"
-          element={<ItemListContainer mensaje="Estas en la categoria:" />}
+          element={<ItemListContainer mensaje="Estas en la categoria: " />}
         />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="*" element={<Error />} />

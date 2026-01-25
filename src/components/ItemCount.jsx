@@ -32,7 +32,7 @@ export const ItemCount = ({ stock, onAdd }) => {
       </button>
       <button
         className="btn btn-primary"
-        onClick={() => onAdd(counter)}
+        onClick={comprar}
         disabled={counter === 0 || stock === 0}
       >
         Comprar
