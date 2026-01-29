@@ -1,9 +1,12 @@
-import React from "react";
+import { useContext } from "react";
 import { CartWidget } from "./CartWidget";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 export const NavBar = () => {
+  const { cart } = useContext(CartContext);
+
   return (
     <>
       <Navbar className="bg-secondary container">

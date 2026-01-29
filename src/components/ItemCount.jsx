@@ -31,7 +31,7 @@ export const ItemCount = ({ stock, onAdd }) => {
         +
       </button>
       <button
-        className="btn btn-primary"
+        className="btn btn-primary m-2"
         onClick={comprar}
         disabled={counter === 0 || stock === 0}
       >
