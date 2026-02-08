@@ -1,5 +1,5 @@
 import React from "react";
-import { PacmanLoader } from "react-spinners";
+import {  SyncLoader } from "react-spinners";
 
 export const Loader = ({ text }) => {
   return (
@@ -7,8 +7,8 @@ export const Loader = ({ text }) => {
       className="container d-flex flex-column justify-content-center align-items-center"
       style={{ minHeight: "100vh", width: "100%" }}
     >
-      <PacmanLoader size={40} />
-      <span>{text}</span>
+      <SyncLoader size={10} margin={5} />
+      <span style={{padding:10}}>{text}</span>
     </div>
   );
 };
