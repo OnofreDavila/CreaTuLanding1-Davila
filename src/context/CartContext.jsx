@@ -1,12 +1,11 @@
 import { createContext, useState } from "react";
 
 // crear contexto
-
 export const CartContext = createContext();
 
 //crear el proveedor
 export const CartProvider = ({ children }) => {
-  // estado a controlar, es decir, estado del carrito de compra
+  // estado a controlar, es decir, estado del carrito de compra 
   const [cart, setCart] = useState([]);
 
   //funciones(herramientas)
@@ -14,7 +13,7 @@ export const CartProvider = ({ children }) => {
   //añadir un item al carrito
   const addItem = (item, qty) => {
     if (isInCart(item.id)) {
-      //si item exsite debo modificar el quantity del item
+      //si item excite debo modificar el quantity del item
       setCart(
         cart.map((prod) => {
           if (prod.id === item.id) {
@@ -45,13 +44,22 @@ export const CartProvider = ({ children }) => {
   };
 
   // funcion total a pagar
-  const total = () => {};
+  const totalPrice = () => {
+    return cart.reduce(
+      (total, product) =>  total + (product.price * product.quantity)
+      , 0);
+  };
 
   //funcion que sume cantidades
-  const cartQuantity = () => {};
+  const cartQuantity = () => {
+    return cart.reduce(
+      (total, product) => total + product.quantity,
+      0
+    );
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addItem, clear, removeItem }}>
+    <CartContext.Provider value={{ cart, addItem, clear, removeItem, cartQuantity, totalPrice }}>
       {children}
     </CartContext.Provider>
   );

@@ -26,7 +26,7 @@ export const ItemListContainer = ({ mensaje }) => {
       })
       .catch((error) => console.log(error)) //atrapar el error con el catch
       .finally(() => setLoading(false));
-  }, [type]); // se usa una sola vez al inicio para traer el getProducts y por cada cambvio de type(categoria)
+  }, [type]); // se usa una sola vez al inicio para traer el getProducts y por cada cambio de type(categoria)
 
   return (
     <>
