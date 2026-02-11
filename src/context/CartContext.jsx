@@ -5,7 +5,7 @@ export const CartContext = createContext();
 
 //crear el proveedor
 export const CartProvider = ({ children }) => {
-  // estado a controlar, es decir, estado del carrito de compra 
+  // estado a controlar, es decir, estado del carrito de compra
   const [cart, setCart] = useState([]);
 
   //funciones(herramientas)
@@ -46,20 +46,20 @@ export const CartProvider = ({ children }) => {
   // funcion total a pagar
   const totalPrice = () => {
     return cart.reduce(
-      (total, product) =>  total + (product.price * product.quantity)
-      , 0);
+      (total, product) => (total += product.price * product.quantity),
+      0,
+    );
   };
 
   //funcion que sume cantidades
   const cartQuantity = () => {
-    return cart.reduce(
-      (total, product) => total + product.quantity,
-      0
-    );
+    return cart.reduce((total, product) => (total += product.quantity), 0);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addItem, clear, removeItem, cartQuantity, totalPrice }}>
+    <CartContext.Provider
+      value={{ cart, addItem, clear, removeItem, cartQuantity, totalPrice }}
+    >
       {children}
     </CartContext.Provider>
   );

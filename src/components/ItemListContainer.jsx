@@ -1,32 +1,59 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../asyncMock/data";
+//import { getProducts } from "../asyncMock/data";
 import { SiDatocms } from "react-icons/si";
 import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
 import { Loader } from "./Loader";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../service/firebase";
 
 export const ItemListContainer = ({ mensaje }) => {
   const [data, setData] = useState([]);
   const { type } = useParams();
   const [loading, setLoading] = useState(false);
 
+  //Metodo para pedir datos a la base de datos en firebase
   useEffect(() => {
     //Cargar el Spinner
     setLoading(true);
+    //1 conectar a nuestra coleccion
+    const prodCollection = type
+      ? query(collection(db, "productos"), where("category", "==", type))
+      : collection(db, "productos");
+    //2 pedir los documentos
+    getDocs(prodCollection)
+      .then((res) => {
+        const list = res.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        });
 
-    //Pedir datos
-    getProducts() //retorna promesa
-      .then((resolve) => {
-        if (type) {
-          //si type existe debemos filtrar por el type osea la categoria
-          setData(resolve.filter((prod) => prod.category === type)); //type normalizado
-        } else {
-          setData(resolve); //insertamos el array de data en el useState data
-        }
+        setData(list);
       })
       .catch((error) => console.log(error)) //atrapar el error con el catch
       .finally(() => setLoading(false));
-  }, [type]); // se usa una sola vez al inicio para traer el getProducts y por cada cambio de type(categoria)
+  }, [type]); // por cada cambio de type(categoria)
+
+  //Esta es el useEffect utilizado para data local , es decir, el asyncMock
+  // useEffect(() => {
+  //   //Cargar el Spinner
+  //   setLoading(true);
+
+  //   //Pedir datos
+  //   getProducts() //retorna promesa
+  //     .then((resolve) => {
+  //       if (type) {
+  //         //si type existe debemos filtrar por el type osea la categoria
+  //         setData(resolve.filter((prod) => prod.category === type)); //type normalizado
+  //       } else {
+  //         setData(resolve); //insertamos el array de data en el useState data
+  //       }
+  //     })
+  //     .catch((error) => console.log(error)) //atrapar el error con el catch
+  //     .finally(() => setLoading(false));
+  // }, [type]); // se usa una sola vez al inicio para traer el getProducts y por cada cambio de type(categoria)
 
   return (
     <>

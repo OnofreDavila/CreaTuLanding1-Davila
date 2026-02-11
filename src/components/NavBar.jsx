@@ -1,11 +1,11 @@
-import { useContext } from "react";
+//import { useContext } from "react";
 import { CartWidget } from "./CartWidget";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
+import { Link, NavLink } from "react-router-dom";
+//import { CartContext } from "../context/CartContext";
 
 export const NavBar = () => {
-  const { cart } = useContext(CartContext);
+  //const { cart } = useContext(CartContext);
 
   return (
     <>
@@ -35,7 +35,9 @@ export const NavBar = () => {
             </Nav>
           </div>
           <div className="d-flex align-items-center flex-shrink-0">
-            <CartWidget />
+            <Nav.Link as={NavLink} to="/cart">
+              <CartWidget />
+            </Nav.Link>
           </div>
         </Container>
       </Navbar>
