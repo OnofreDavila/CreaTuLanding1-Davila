@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Error } from "./components/Error";
 import { CartProvider } from "./context/CartContext";
 import { CartContainer } from "./components/CartContainer";
+import { Checkout } from "./components/Checkout";
 
 function App() {
   const mensaje = "Bienvenidos a Proyect Conspiracy Clothing";
@@ -19,8 +20,12 @@ function App() {
             element={<ItemListContainer mensaje="Estas en la categoria: " />}
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="*" element={<Error />} />
+
           <Route path="/cart" element={<CartContainer />} />
+
+          <Route path="/checkout" element={<Checkout />} />
+
+          <Route path="*" element={<Error />} />
         </Routes>
       </CartProvider>
     </BrowserRouter>
