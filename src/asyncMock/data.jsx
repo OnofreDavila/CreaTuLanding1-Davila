@@ -1,9 +1,8 @@
-const products = [
+export const products = [
   {
     id: "01",
     name: " Polera 1",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 10,
     price: 25000,
     category: "Men",
@@ -12,8 +11,7 @@ const products = [
   {
     id: "02",
     name: " Polera 2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 20,
     price: 25000,
     category: "Men",
@@ -22,8 +20,7 @@ const products = [
   {
     id: "03",
     name: " Polera 3",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 30,
     price: 25000,
     category: "Men",
@@ -32,8 +29,7 @@ const products = [
   {
     id: "04",
     name: " Polera 4",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 40,
     price: 15000,
     category: "Women",
@@ -42,8 +38,7 @@ const products = [
   {
     id: "05",
     name: " Polera 5",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 50,
     price: 15000,
     category: "Women",
@@ -52,8 +47,7 @@ const products = [
   {
     id: "06",
     name: " Polera 6",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 60,
     price: 15000,
     category: "Women",
@@ -62,8 +56,7 @@ const products = [
   {
     id: "07",
     name: " Polera 7",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 70,
     price: 15000,
     category: "Kids",
@@ -72,8 +65,7 @@ const products = [
   {
     id: "08",
     name: " Polera 8",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     stock: 80,
     price: 15000,
     category: "Kids",

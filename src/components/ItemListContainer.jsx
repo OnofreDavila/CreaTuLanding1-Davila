@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { Loader } from "./Loader";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../service/firebase";
+//import { products } from "../asyncMock/data";
 
 export const ItemListContainer = ({ mensaje }) => {
   const [data, setData] = useState([]);
@@ -17,9 +18,7 @@ export const ItemListContainer = ({ mensaje }) => {
     //Cargar el Spinner
     setLoading(true);
     //1 conectar a nuestra coleccion
-    const prodCollection = type
-      ? query(collection(db, "productos"), where("category", "==", type))
-      : collection(db, "productos");
+    const prodCollection = type ? query(collection(db, "productos"), where("category", "==", type)) : collection(db, "productos");
     //2 pedir los documentos
     getDocs(prodCollection)
       .then((res) => {
@@ -55,6 +54,13 @@ export const ItemListContainer = ({ mensaje }) => {
   //     .finally(() => setLoading(false));
   // }, [type]); // se usa una sola vez al inicio para traer el getProducts y por cada cambio de type(categoria)
 
+  // funcion para subir un data mock al firebase
+  // const subirData = () => {
+  //   console.log("subiendo data");
+  //   const colSubir = collection(db, "productos");
+  //   products.map((prod) => addDoc(colSubir, prod));
+  // };
+
   return (
     <>
       {loading ? (
@@ -63,9 +69,7 @@ export const ItemListContainer = ({ mensaje }) => {
         <div className="container bg-secondary-subtle d-flex flex-column">
           <h1 className="text-center">
             {mensaje}
-            {type && (
-              <span style={{ textTransform: "capitalize" }}>{type}</span>
-            )}
+            {type && <span style={{ textTransform: "capitalize" }}>{type}</span>}
           </h1>
           <ItemList data={data} />
         </div>
