@@ -1,16 +1,34 @@
-# React + Vite
+#Coder React Flex JS App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto fue realizado para el curso de React Flex JS en CoderHouse.
 
-Currently, two official plugins are available:
+![app](/public/logoPC.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+###Instalacion
 
-## React Compiler
+1. Clone el repositorio.
+2. Moverse a la carpeta creada con el comando "CreaTuLanding1-Davila"
+3. Ejecute el comando 'npm-install' para instalar dependencias y crear la carpeta node_modules.
+4. ejecute el comando 'npm run dev' para levantarlo en servidor local
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> Es necesario contar con Node v24.13.1
 
-## Expanding the ESLint configuration
+### Version Host 💻
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Para ver el proyecto online, debe ingresar al siguiene link:[Coder App]()
+
+### Librerias utilizadas en el proyecto
+
+-[React Bootstrap](https://react-bootstrap.netlify.app/): utilizada para el estilo en la app
+
+-[BootStrap](https://getbootstrap.com/): utilizado para el estilo en la app
+
+-[React Icons](https://react-icons.github.io/react-icons/): utilizada para los iconos.
+
+-[Firebase](https://firebase.google.com): utilizada para base de datos.
+
+-[React Router Dom](https://reactrouter.com/): utilizada para implementar la navegacion por rutas.
+
+-[React Spinner](https://www.davidhu.io/react-spinners/): utilizado para la implementacicon de spinner
+
+Desarrollado por Onofre Dávila
