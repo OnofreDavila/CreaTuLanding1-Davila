@@ -1,9 +1,22 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const CartView = () => {
   const { cart, removeItem, clear, totalPrice } = useContext(CartContext);
+  const preConfirm = () => {
+    Swal.fire({
+      title: "¿Esta seguro de vaciar el Carrito?",
+      showDenyButton: true,
+      denyButtonText: "No",
+      confirmButtonText: "Si",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        clear();
+      }
+    });
+  };
 
   return (
     <div className="container">
@@ -34,7 +47,7 @@ export const CartView = () => {
       </div>
       <span>Total a pagar: ${totalPrice()},00 </span>
       <div>
-        <button className="btn btn-danger m-2" onClick={clear}>
+        <button className="btn btn-danger m-2" onClick={preConfirm}>
           Vaciar Carrito
         </button>
         <Link to="/checkout" className="btn btn-success">
