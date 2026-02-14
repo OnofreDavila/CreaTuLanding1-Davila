@@ -3,9 +3,10 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { ItemCount } from "./ItemCount";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const ItemDetail = ({ detail }) => {
-  const { addItem, cart } = useContext(CartContext);
+  const { addItem, cart, itemQuantity } = useContext(CartContext);
   const [condiRender, setCondiRender] = useState(false);
   const navigate = useNavigate();
   console.log(cart, "cart");
@@ -14,14 +15,19 @@ export const ItemDetail = ({ detail }) => {
     console.log(`Agregaste ${cantidad} del producto ${detail.name}.`);
     addItem(detail, cantidad);
     setCondiRender(true);
+    Swal.fire({
+      title: `Agregaste ${detail.name} al Carrito`,
+      confirmButtonColor: "#28a745",
+    });
   };
 
+  const stockActualizado = detail.stock - itemQuantity(detail.id);
   return (
     <div className="container">
       <h1>Detalle del producto: {detail.name}</h1>
       <img src={detail.img} alt={detail.name} />
       <p>{detail.description}</p>
-      <p>Stock: {detail.stock}</p>
+      <p>Stock: {stockActualizado} unidades disponibles</p>
       <p>Precio: ${detail.price},00</p>
       {condiRender ? (
         <>
@@ -33,7 +39,7 @@ export const ItemDetail = ({ detail }) => {
           </button>
         </>
       ) : (
-        <ItemCount stock={detail.stock} onAdd={onAdd} />
+        <ItemCount stock={stockActualizado} onAdd={onAdd} />
       )}
     </div>
   );

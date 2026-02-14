@@ -1,12 +1,17 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 // crear contexto
 export const CartContext = createContext();
 
+const carritoLS = JSON.parse(localStorage.getItem("carrito")) || [];
 //crear el proveedor
 export const CartProvider = ({ children }) => {
   // estado a controlar, es decir, estado del carrito de compra
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(carritoLS);
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(cart));
+  }, [cart]);
 
   //funciones(herramientas)
 
@@ -56,12 +61,30 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, product) => (total += product.quantity), 0);
   };
 
+  //funcion
+  const itemQuantity = (id) => {
+    const itemInCart = cart.find((item) => item.id === id);
+
+    if (itemInCart) {
+      return itemInCart.quantity;
+    } else {
+      return 0;
+    }
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addItem, clear, removeItem, cartQuantity, totalPrice }}
+      value={{
+        cart,
+        addItem,
+        clear,
+        removeItem,
+        cartQuantity,
+        totalPrice,
+        itemQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>
   );
 };
-
