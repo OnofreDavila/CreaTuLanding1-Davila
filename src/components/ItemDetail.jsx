@@ -16,12 +16,13 @@ export const ItemDetail = ({ detail }) => {
     addItem(detail, cantidad);
     setCondiRender(true);
     Swal.fire({
-      title: `Agregaste ${detail.name} al Carrito`,
+      title: `Agregaste el producto ${detail.name} al Carrito`,
       confirmButtonColor: "#28a745",
     });
   };
 
   const stockActualizado = detail.stock - itemQuantity(detail.id);
+
   return (
     <div className="container">
       <h1>Detalle del producto: {detail.name}</h1>

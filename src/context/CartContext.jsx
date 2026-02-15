@@ -3,7 +3,9 @@ import { createContext, useEffect, useState } from "react";
 // crear contexto
 export const CartContext = createContext();
 
+//creat instancia del LocalStorage
 const carritoLS = JSON.parse(localStorage.getItem("carrito")) || [];
+
 //crear el proveedor
 export const CartProvider = ({ children }) => {
   // estado a controlar, es decir, estado del carrito de compra
@@ -50,10 +52,7 @@ export const CartProvider = ({ children }) => {
 
   // funcion total a pagar
   const totalPrice = () => {
-    return cart.reduce(
-      (total, product) => (total += product.price * product.quantity),
-      0,
-    );
+    return cart.reduce((total, product) => (total += product.price * product.quantity), 0);
   };
 
   //funcion que sume cantidades
