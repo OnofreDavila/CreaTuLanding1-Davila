@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./ItemCount.css";
 
 export const ItemCount = ({ stock, onAdd }) => {
-  //Estado del contador
   const [counter, setCounter] = useState(1);
   const navigate = useNavigate();
 
-  //funciones de los botones
   const sumar = () => {
     if (counter < stock) {
       setCounter(counter + 1);
@@ -26,6 +25,30 @@ export const ItemCount = ({ stock, onAdd }) => {
   return (
     <>
       {stock > 0 ? (
+        <div className="item-count-wrapper">
+          <div className="quantity-selector">
+            <button className="quantity-btn" onClick={restar} disabled={counter === 1}>
+              -
+            </button>
+            <span className="quantity-display">{counter}</span>
+            <button className="quantity-btn" onClick={sumar} disabled={counter === stock}>
+              +
+            </button>
+          </div>
+          <button className="btn-add-cart" onClick={comprar} disabled={counter === 0 || stock === 0}>
+            AGREGAR AL CARRITO
+          </button>
+        </div>
+      ) : (
+        <div className="no-stock-wrapper">
+          <p className="no-stock-message">Lo sentimos, no hay stock disponible en este momento</p>
+          <button className="btn-back" onClick={() => navigate(-1)}>
+            VOLVER ATRÁS
+          </button>
+        </div>
+      )}
+
+      {/* {stock > 0 ? (
         <div>
           <button className="btn btn-danger" onClick={restar}>
             -
@@ -34,11 +57,7 @@ export const ItemCount = ({ stock, onAdd }) => {
           <button className="btn btn-success" onClick={sumar}>
             +
           </button>
-          <button
-            className="btn btn-primary m-2"
-            onClick={comprar}
-            disabled={counter === 0 || stock === 0}
-          >
+          <button className="btn btn-primary m-2" onClick={comprar} disabled={counter === 0 || stock === 0}>
             Comprar
           </button>
         </div>
@@ -49,7 +68,7 @@ export const ItemCount = ({ stock, onAdd }) => {
             Volver atrás
           </button>
         </div>
-      )}
+      )} */}
     </>
   );
 };

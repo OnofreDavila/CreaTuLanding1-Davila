@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from "react";
-//import { getProducts } from "../asyncMock/data";
-import { SiDatocms } from "react-icons/si";
 import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
 import { Loader } from "./Loader";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../service/firebase";
-//import { products } from "../asyncMock/data";
+import "./ItemListContainer.css";
 
 export const ItemListContainer = ({ mensaje }) => {
   const [data, setData] = useState([]);
   const { type } = useParams();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  //Metodo para pedir datos a la base de datos en firebase
   useEffect(() => {
-    //Cargar el Spinner
     setLoading(true);
-    //1 conectar a nuestra coleccion
     const prodCollection = type ? query(collection(db, "productos"), where("category", "==", type)) : collection(db, "productos");
-    //2 pedir los documentos
+
     getDocs(prodCollection)
       .then((res) => {
         const list = res.docs.map((doc) => {
@@ -31,39 +27,37 @@ export const ItemListContainer = ({ mensaje }) => {
 
         setData(list);
       })
-      .catch((error) => console.log(error)) //atrapar el error con el catch
+      .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  }, [type]); // por cada cambio de type(categoria)
+  }, [type]);
 
-  //Esta es el useEffect utilizado para data local , es decir, el asyncMock
-  // useEffect(() => {
-  //   //Cargar el Spinner
-  //   setLoading(true);
-
-  //   //Pedir datos
-  //   getProducts() //retorna promesa
-  //     .then((resolve) => {
-  //       if (type) {
-  //         //si type existe debemos filtrar por el type osea la categoria
-  //         setData(resolve.filter((prod) => prod.category === type)); //type normalizado
-  //       } else {
-  //         setData(resolve); //insertamos el array de data en el useState data
-  //       }
-  //     })
-  //     .catch((error) => console.log(error)) //atrapar el error con el catch
-  //     .finally(() => setLoading(false));
-  // }, [type]); // se usa una sola vez al inicio para traer el getProducts y por cada cambio de type(categoria)
-
-  // funcion para subir un data mock al firebase
-  // const subirData = () => {
-  //   console.log("subiendo data");
-  //   const colSubir = collection(db, "productos");
-  //   products.map((prod) => addDoc(colSubir, prod));
-  // };
+  if (error) {
+    return <p>Hubo un error, intente mas tarde.</p>;
+  }
 
   return (
     <>
       {loading ? (
+        <Loader text={type ? "Cargando categorías" : "Cargando productos"} />
+      ) : (
+        <div className="item-list-wrapper">
+          <div className="hero-section">
+            <div className="hero-content">
+              <h1 className="hero-title">
+                {mensaje}
+                {type && <span className="category-highlight">{type}</span>}
+              </h1>
+              {!type && <p className="hero-subtitle">Streetwear que desafía lo convencional</p>}
+            </div>
+            <div className="hero-decoration">
+              <div className="decoration-line"></div>
+            </div>
+          </div>
+          <ItemList data={data} />
+        </div>
+      )}
+
+      {/* {loading ? (
         <Loader text={type ? "Cargando categorias" : "Cargando productos"} />
       ) : (
         <div className="container bg-secondary-subtle d-flex flex-column">
@@ -73,7 +67,7 @@ export const ItemListContainer = ({ mensaje }) => {
           </h1>
           <ItemList data={data} />
         </div>
-      )}
+      )} */}
     </>
   );
 };
