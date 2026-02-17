@@ -68,25 +68,5 @@ export const ItemDetail = ({ detail }) => {
         </div>
       </div>
     </div>
-
-    // <div className="container">
-    //   <h1>Detalle del producto: {detail.name}</h1>
-    //   <img src={detail.img} alt={detail.name} />
-    //   <p>{detail.description}</p>
-    //   <p>Stock: {stockActualizado} unidades disponibles</p>
-    //   <p>Precio: ${detail.price},00</p>
-    //   {condiRender ? (
-    //     <>
-    //       <Link className="btn btn-dark me-2" to="/cart">
-    //         Ir al Carrito
-    //       </Link>
-    //       <button className="btn btn-dark" onClick={() => navigate(-1)}>
-    //         Volver atrás
-    //       </button>
-    //     </>
-    //   ) : (
-    //     <ItemCount stock={stockActualizado} onAdd={onAdd} />
-    //   )}
-    // </div>
   );
 };

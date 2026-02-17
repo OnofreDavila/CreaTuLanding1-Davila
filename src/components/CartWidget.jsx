@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { TiShoppingCart } from "react-icons/ti";
-// import Badge from "react-bootstrap/Badge";
 import "./CartWidget.css";
 
 export const CartWidget = () => {

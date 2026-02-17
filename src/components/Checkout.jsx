@@ -31,8 +31,6 @@ export const Checkout = () => {
 
   const finalizarCompra = (data) => {
     setProcess(true);
-
-    //creo la orden
     let orden = {
       comprador: {
         name: data.name,

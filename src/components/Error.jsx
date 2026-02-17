@@ -14,12 +14,5 @@ export const Error = () => {
         </Link>
       </div>
     </div>
-
-    // <div className="container text-center">
-    //   <h1> Error: no se encuentra la ruta! </h1>
-    //   <Link className="btn btn-dark" to="/">
-    //     !Volver a Home!
-    //   </Link>
-    // </div>
   );
 };

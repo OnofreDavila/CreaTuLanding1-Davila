@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-//import { getOneProduct } from "../asyncMock/data";
 import { ItemDetail } from "./ItemDetail";
 import { Link, useParams } from "react-router-dom";
 import { Loader } from "./Loader";
@@ -35,16 +34,6 @@ export const ItemDetailContainer = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  //Este useEffect lo usamos para consumir de un Mock local
-  // useEffect(() => {
-  //   //Cargar el Spinner
-  //   setLoading(true);
-
-  //   getOneProduct(id)
-  //     .then((res) => setDetail(res))
-  //     .catch((error) => console.log(error))
-  //     .finally(() => setLoading(false));
-  // }, [id]);
   if (invalid) {
     return (
       <div>

@@ -56,18 +56,6 @@ export const ItemListContainer = ({ mensaje }) => {
           <ItemList data={data} />
         </div>
       )}
-
-      {/* {loading ? (
-        <Loader text={type ? "Cargando categorias" : "Cargando productos"} />
-      ) : (
-        <div className="container bg-secondary-subtle d-flex flex-column">
-          <h1 className="text-center">
-            {mensaje}
-            {type && <span style={{ textTransform: "capitalize" }}>{type}</span>}
-          </h1>
-          <ItemList data={data} />
-        </div>
-      )} */}
     </>
   );
 };
