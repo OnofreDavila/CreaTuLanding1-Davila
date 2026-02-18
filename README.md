@@ -13,7 +13,6 @@ Para ver el proyecto online, debe ingresar al siguiene link:[Coder App](https://
 
 - [Características](#-características)
 - [Stack Tecnológico](#️-stack-tecnológico)
-- [Capturas de Pantalla](#-capturas-de-pantalla)
 - [Instalación](#-instalación)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Autor](#-autor)
