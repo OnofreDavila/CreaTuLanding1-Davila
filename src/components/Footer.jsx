@@ -9,13 +9,13 @@ export const Footer = () => {
   return (
     <footer className="footer">
       {/* ── Franja superior decorativa ── */}
-      <div className="footer-tape">{"CONSPIRACY CLOTHING · STREETWEAR · ".repeat(10)}</div>
+      <div className="footer-tape">{"PROYECT CONSPIRACY CLOTHING · STREETWEAR · ".repeat(12)}</div>
 
       {/* ── Cuerpo principal ── */}
       <div className="footer-body">
         {/* Columna izquierda — Marca */}
         <div className="footer-brand">
-          <img src="./logoPC.png" alt="Conspiracy Clothing logo" className="footer-logo" />
+          <img src="./logoPC.png" alt="Proyect Conspiracy Clothing logo" className="footer-logo" />
           <p className="footer-tagline">
             Ropa para los que <br />
             <span className="tagline-accent">no piden permiso.</span>

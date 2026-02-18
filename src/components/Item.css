@@ -97,17 +97,19 @@
 
 .product-body {
   padding: 1.5rem;
-  background: var(--secondary-dark);
+  background: #0f0f0f;  
+  border-top: 1px solid rgba(244, 224, 77, 0.1);  /* Sutil línea amarilla */
 }
 
 .product-name {
   font-family: 'Archivo', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-light);
+  color: #ffffff !important;  
   margin-bottom: 0.75rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);  /* Sombra sutil para legibilidad */
 }
 
 .product-price {
